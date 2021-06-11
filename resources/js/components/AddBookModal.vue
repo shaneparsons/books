@@ -1,5 +1,5 @@
 <template>
-  <b-modal @keydown.native.enter="addBook" @ok="addBook" id="add-book-modal" ok-title="Add" ref="modal" title="Add Book">
+  <b-modal @keydown.native.enter="addBook" @ok="addBook" @hidden="reset" id="add-book-modal" ok-title="Add" ref="modal" title="Add Book">
     <b-alert :show="alert.show" :variant="alert.variant" @dismissed="alert.show = false" fade v-html="alert.message"></b-alert>
     <b-form>
       <b-form-group label="Title" label-for="title" label-sr-only v-b-tooltip.hover="'Title'">
@@ -27,8 +27,8 @@ export default {
       book: {
         title: '',
         author: '',
-        description: ''
-      }
+        description: '',
+      },
     };
   },
   methods: {
@@ -37,13 +37,13 @@ export default {
       try {
         // update book
         const response = await axios.post('/api/books', this.book);
-        console.log(response.data);
+        // console.log(response.data);
 
         // emit response
         this.$emit('response', { variant: 'success', message: 'Book added.', reload: true });
         this.$refs.modal.hide();
       } catch (error) {
-        console.log(error.response);
+        // console.log(error.response);
         if (error.response.status == 422) {
           // validator error (displayed nicely)
           let message = '';
@@ -58,6 +58,13 @@ export default {
           this.$refs.modal.hide();
         }
       }
+    },
+    reset() {
+      this.book = {
+        title: '',
+        author: '',
+        description: '',
+      };
     },
   },
 };

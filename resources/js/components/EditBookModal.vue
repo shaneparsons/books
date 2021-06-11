@@ -35,13 +35,13 @@ export default {
       try {
         // update book
         const response = await axios.put('/api/books/' + this.book.id, this.book);
-        console.log(response.data);
+        // console.log(response.data);
 
         // emit response
         this.$emit('response', { variant: 'success', message: 'Book updated.', reload: true });
         this.$refs.modal.hide();
       } catch (error) {
-        console.log(error.response);
+        // console.log(error.response);
         if (error.response.status == 422) {
           // validator error (displayed nicely)
           let message = '';

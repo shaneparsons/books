@@ -64,7 +64,7 @@ export default {
     async getBooks() {
       try {
         const response = await axios.get('/api/books');
-        console.log(response);
+        // console.log(response);
         this.books = response.data;
         this.loaded = true;
       } catch (error) {
@@ -90,14 +90,14 @@ export default {
           await this.getBooks();
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       } finally {
         // show response
         this.alert.variant = response.variant;
         this.alert.message = response.message;
         this.alert.show = 3;
 
-        console.log(this.alert);
+        // console.log(this.alert);
       }
     },
   },

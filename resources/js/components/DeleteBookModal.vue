@@ -14,11 +14,11 @@ export default {
       event.preventDefault();
       try {
         const response = await axios.delete('/api/books/' + this.book.id);
-        console.log(response);
+        // console.log(response);
         // emit response
         this.$emit('response', { variant: 'success', message: 'Book deleted.', reload: true });
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         // display error
         this.$emit('response', { variant: 'danger', message: error.response.data.message });
       } finally {
