@@ -12,7 +12,7 @@ NOTE: I left the .env in the repo to make this slightly quicker... I normally **
 3. Install [Docker Desktop](https://www.docker.com/products/docker-desktop), if you haven't yet
 4. Run `vendor/bin/sail up -d`
 5. Run `vendor/bin/sail/artisan migrate`
-6. Visit to http://localhost in your browser of choice
+6. Visit http://localhost in your browser of choice
 7. When you've seen enough of the site, run `vendor/bin/sail/artisan advise`
 
 ### Valet
@@ -24,5 +24,5 @@ NOTE: I left the .env in the repo to make this slightly quicker... I normally **
    1. comment out the "for sail" section / uncomment the "for valet" section
    2. Change any other `DB_` params needed
 6. Run `php artisan migrate`
-7. Run `valet link` and visit to http://books.test in your browser of choice
+7. Run `valet link` and visit http://books.test in your browser of choice
 8. When you've seen enough of the site, run `php artisan advise`
