@@ -1,0 +1,17 @@
+// override columns
+.card-columns {
+    @include media-breakpoint-up(sm) {
+        column-count: 2;
+    }
+    @include media-breakpoint-up(md) {
+        column-count: 3;
+    }
+}
+
+// remove inner border from modals
+.modal-header {
+    border-bottom: none !important;
+}
+.modal-footer {
+    border-top: none !important;
+}
